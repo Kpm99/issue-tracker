@@ -1,0 +1,139 @@
+<% if(showIssue){%>
+    <div id="show-data">
+        <div id="report-issue">
+            <button id="create-project" ><a href="/issue/issuePage/<%= project._id %>">
+                Report Issue
+            </a></button>
+        </div>
+        <div id="project-data">
+            <h2 class="project-header">Project Info</h2>
+            <table>
+                <tr>
+                    <td>project name:</td>
+                    <td><%= project.projectname%></td>
+                </tr>
+                <tr>
+                    <td>project author:</td>
+                    <td><%= project.projectauthor%></td>
+                </tr>
+                <tr>
+                    <td>project description:</td>
+                    <td><%= project.projectdescription%></td>
+                </tr>
+            </table>
+        </div>
+  
+        <div class="circle"> 
+            <p style="text-align:center">
+                Bugs:
+                <%= issue.length%>
+            </p>
+        </div>
+
+ 
+    <% if(issue.length==0){%>
+        <div class="no-bugs">
+            <br>
+            <br>
+            <h1 style="margin-top:10px">No bugs</h1> 
+            
+        </div>
+    <%}%>
+    
+    
+    <% if(issue.length>0){%>
+        <section id="filter-issues">
+            <div id="search-section">
+                <div class="create-box">
+                   <h2 class="filter-header" style="text-align: center;">Filter Issues</h2>
+                    <form action="/issue/filterIssue" method="post">
+                        
+                        <div class="user-box">
+                            <select name="label2" class="project-button">
+                                <% for(i of labelSet){%>
+                                    <option value="<%= i%>"><%= i%></option>   
+                                <%}%>
+                            </select>
+                            <input type="hidden" name="projectId" value="<%= project._id%>">
+                        </div>
+                        <a href=""><input type="submit" value="search" class="filter-submit"></a>
+                    </form>
+                   
+                    <form action="/issue/filterIssue" method="post">
+                        <div class="user-box">
+                            <input type="text" name="searchAuthor" required class="filter-input" class="filter-input" placeholder="Author name">
+                            
+                        </div>
+                        <input type="hidden" name="projectId" value="<%= project._id%>">
+                        <a href="">
+                            <input type="submit" value="Search" class="filter-submit">
+                        </a>
+                    </form>
+                   
+                    <form action="/issue/filterIssue" method="post">
+                        <div class="user-box">
+                            <input type="text" name="searchTitleDesc" required class="filter-input" placeholder="title or description">
+                            
+                        </div>
+                        <input type="hidden" name="projectId" value="<%= project._id%>">
+                        <a href="">
+                            <input type="submit" value="Search" class="filter-submit">
+                        </a>
+                    </form>
+                </div>    
+            </div>
+         
+            <div id="show-table">
+                <h2 style="text-align: center;">All Issues</h2>
+                <table border="2px solid" >
+                    <tr >
+                        <th class="table-header">title</th>
+                        <th class="table-header">description</th>
+                        <th class="table-header">author</th>
+                        <th class="table-header">labels</th>
+                    </tr>
+                    <% for(i of issue){%>
+                        <tr>
+                            <td><%=i.title%></td>
+                            <td><%=i.description%></td>
+                            <td><%=i.author%></td>
+                            <td><%= i.labels%></td>
+                        </tr>
+                    <%}%>
+                </table>
+            </div>  
+        </section>
+    <%}%>
+    </div>
+<%}%>
+
+
+<% if(!showIssue){%>
+    <div id="filter-data" id="show-table">
+        <h2>Filter Data</h2>
+        <table  border="2px solid">
+            <tr>
+                <th>issue Title</th>
+                <th>Description</th>
+                <th>Author</th>
+                <th>label</th>
+            </tr>
+            <% for(i of filterdata){%>
+                <tr>
+                    <td>
+                        <%= i.title%>
+                    </td>
+                    <td>
+                        <%= i.description%>
+                    </td>
+                    <td>
+                        <%= i.author%>
+                    </td>
+                    <td>
+                        <%= i.labels%>
+                    </td>
+                </tr>
+                <%}%>
+        </table>
+    </div>
+    <%}%>

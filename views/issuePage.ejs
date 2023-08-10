@@ -1,0 +1,18 @@
+
+
+<h2 class="project-header">Issue Page</h2>
+
+<form action="/issue/create" method="POST" class="project-create">
+<input type="text" placeholder="Issue Title" name="title" class="project-input" required>
+<input type="text" placeholder="Description" name="description" class="project-input" required>
+<input type="text" placeholder="Author" name="author" class="project-input" required>
+<input type="hidden" name="projectRef" value="<%= projectId %>">
+<select name="labels"  required class="select-button">
+    <option value="" disabled selected>Select Issue</option>
+    <option>Personal</option>
+    <option>Work</option>
+    <option>System</option>
+    <option>Runtime</option>    
+</select>
+<button class="project-button">Submit</button>
+</form>

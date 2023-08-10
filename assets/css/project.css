@@ -1,0 +1,29 @@
+
+
+
+.project-create{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.project-header{
+    text-align: center;
+    
+}
+.project-input{
+    width:400px;
+    padding:10px;
+    margin:10px 0px 0px 0px ;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.project-button{
+    padding: 10px;
+    width:200px;
+    border-radius:5px;
+    background-color: crimson;
+    color: aliceblue;
+}

@@ -1,0 +1,65 @@
+*{
+    font-family: sans-serif;
+}
+
+#header{
+    display: flex;
+
+}
+#create-project{
+    position:absolute;
+    right: 5px;
+    border: 2px solid black;
+    padding:10px;
+    background-color: darkgreen;
+    border-radius: 10px;
+    
+}
+#show-issue{
+    border: 2px solid black;
+    padding: 0px 5px 5px 5px;
+    background-color:darkgreen;
+    border-radius: 10px;
+}
+
+#show-issue a{
+    color:white;
+    text-decoration: none;
+}
+#create-project a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+table{
+    margin: auto;
+
+}
+
+h1{
+    text-align: center;
+    margin: auto;
+    
+}
+#homePage{
+    margin: auto;
+    width:500px;
+
+}
+#project-list{
+    border: 2px solid black;
+    margin-top:20px;
+    border-radius: 10px;
+    background-color:cadetblue;
+}
+
+#project-info{
+    margin:0px 20px 0px 20px;
+}
+button{
+    margin:0px 20px 10px 20px;
+}
+h3{
+    margin:10px 20px 10px 20px;
+    border-bottom:2px solid black ;
+}

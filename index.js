@@ -1,5 +1,5 @@
 //port
-const port =8000;
+const port =process.env.port || 8000;
 const express=require('express');
 
 const bodyParser=require('body-parser');
@@ -22,7 +22,7 @@ app.set('/views','./views')
 app.use('/',require('./routes'))
 
 //starting server
-app.listen(8000,function(err){
+app.listen(port,function(err){
     if(err){
         console.log("error connecting to server")
     }
